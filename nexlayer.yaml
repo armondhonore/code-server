@@ -1,0 +1,18 @@
+application:
+  name: code-server
+  pods:
+  - name: app
+    image: lscr.io/linuxserver/code-server:latest
+    path: /
+    servicePorts:
+    - 8443
+    vars:
+      PUID: "1000"
+      PGID: "1000"
+      PASSWORD: "nexlayer2024"
+      SUDO_PASSWORD: "nexlayer2024"
+      PROXY_DOMAIN: "relaxed-weasel-code-server.cloud.nexlayer.ai"
+    volumes:
+    - name: code-server-config
+      mountPath: /config
+      size: 10Gi
